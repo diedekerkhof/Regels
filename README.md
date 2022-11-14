@@ -1,8 +1,9 @@
 # Regels
+Dit project is gemaakt voor [Regels](regels.overheid.nl). Het bevat een Frank en een Angular Frontend.
+  
+## Start het Frank!Framework
 
-This project was created for [Regels](regels.overheid.nl). It contains a Frank and an Angular Frontend
+ - Clone dit Regels project en de [Frank-runner](https://github.com/ibissource/frank-runner) in dezelfde map.
+ - Dubbel klik op de restart.bat in het Regels project en ga naar [localhost/webcontent/RegelsAPI](http://localhost/webcontent/RegelsAPI) voor de frontend.
+ - Ga naar de Frank!Console[Frank!Console](http://localhost) als je de status van de Frank wilt bekijken.
 
-## Running the Frank
-Clone this Regels project and [Frank-runner](https://github.com/ibissource/frank-runner) in the same folder. 
-Double click the restart.bat in the Regels project and surf to [localhost/webcontent/RegelsAPI](http://localhost/webcontent/RegelsAPI) to see the frontend.
-To see the Frank!Console and the health of the application navigate to [localhost](http://localhost).

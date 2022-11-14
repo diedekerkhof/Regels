@@ -30,7 +30,7 @@ export class RegelsFormComponent {
       this.regels = regels
       this.loading = false;
       this.toastr.success(
-        'Het opsturen van de regels is goed verlopen',
+        'Het ophalen van de regels is goed verlopen',
         'Gelukt!'
       );
     }, error => {
