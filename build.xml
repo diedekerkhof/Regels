@@ -1,0 +1,10 @@
+<project default="restart-regels">
+	<target name="restart-regels">
+		<basename property="project.dir" file="${basedir}"/>
+		<exec executable="../frank-runner/restart.bat" vmlauncher="false" failonerror="true">
+			<arg value="-Dproject.dir=${project.dir}"/>
+			<arg value="-Dlog.level=WARN"/>
+			<arg value="-Dignore.double.jars=true"/>
+		</exec>
+	</target>
+</project>

@@ -1,0 +1,59 @@
+<Module  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./FrankConfig.xsd">
+	<Adapter name="ExecuteRegels" description="This adapter executes regelingen">
+		<Receiver name="ExecuteRegels">
+			<Listener name="ExecuteRegels" className="nl.nn.adapterframework.http.rest.ApiListener"
+			uriPattern="regels/execute" method="POST"/>
+		</Receiver>
+		<Pipeline firstPipe="Json2Xml">
+			<Exits>
+				<Exit path="EXIT" state="success" code="200"/>
+				<Exit path="NotModified" state="success" code="304" empty="true" />
+				<Exit path="BadRequest" state="error" code="400" empty="true" />
+				<Exit path="NotAuthorized" state="error" code="401" empty="true" />
+				<Exit path="NotAllowed" state="error" code="403" empty="true" />
+				<Exit path="ServerError" state="error" code="500" />
+			</Exits>
+
+			<Json2XmlValidatorPipe
+				name="Json2Xml"
+				schema="Common/xsd/regelsExecuteInput.xsd"
+				root="executionRequest"
+				throwException="true"
+				storeResultInSessionKey="originalXML"
+			/>
+
+			<XsltPipe
+				name="TransformRegels"
+				styleSheetName="Common/xsl/createMessageBody.xsl"
+				storeResultInSessionKey="messageBody"
+			/>
+
+			<ForEachChildElementPipe 
+				name="SendRegels"
+				getInputFromSessionKey="originalXML"
+				elementXPathExpression="/executionRequest/regels/regel">
+
+				<IbisJavaSender name="RegelsSender" serviceName="SendRegels">
+					<Param name="url" xpathExpression="regel/regelExecutie"/>
+					<Param name="message" sessionKey="messageBody"/>
+				</IbisJavaSender>
+
+				<Forward name="success" path="EXIT"/>
+			</ForEachChildElementPipe>
+		</Pipeline>
+	</Adapter>
+
+	<Adapter name="SendRegels">
+		<Receiver name="SendRegels" >
+			<JavaListener name="SendRegels" serviceName="SendRegels"/>
+		</Receiver>
+		<Pipeline firstPipe="CallApi">
+			<Exit path="EXIT" state="success"/>
+			<SenderPipe name="CallApi" getInputFromSessionKey="message">
+				<HttpSender name="CallApi" contentType="text/xml" charSet="" methodType="POST">
+					<Param name="url" sessionKey="url"/>
+				</HttpSender>
+			</SenderPipe>
+		</Pipeline>
+	</Adapter>
+</Module>
