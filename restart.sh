@@ -1,2 +1,2 @@
 #!/bin/bash
-../../ant.sh
+../frank-runner/ant.sh
