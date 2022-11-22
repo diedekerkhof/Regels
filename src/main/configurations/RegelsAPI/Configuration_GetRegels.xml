@@ -6,12 +6,12 @@
 		</Receiver>
 		<Pipeline firstPipe="GetRegels">
 			<Exits>
-				<Exit path="EXIT" state="success" code="200"/>
-				<Exit path="NotModified" state="success" code="304" empty="true" />
-				<Exit path="BadRequest" state="error" code="400" empty="true" />
-				<Exit path="NotAuthorized" state="error" code="401" empty="true" />
-				<Exit path="NotAllowed" state="error" code="403" empty="true" />
-				<Exit path="ServerError" state="error" code="500" />
+				<Exit name="EXIT" state="success" code="200"/>
+				<Exit name="NotModified" state="success" code="304" empty="true" />
+				<Exit name="BadRequest" state="error" code="400" empty="true" />
+				<Exit name="NotAuthorized" state="error" code="401" empty="true" />
+				<Exit name="NotAllowed" state="error" code="403" empty="true" />
+				<Exit name="ServerError" state="error" code="500" />
 			</Exits>
 
 			<SenderPipe 
@@ -49,10 +49,8 @@
 				outputFormat="json"
 				schema="Common/xsd/regelsOutput.xsd"
 				root="regels"
-				jsonWithRootElements="false"
 				throwException="true"
 			/>
 		</Pipeline>
 	</Adapter>
 </Module>
-

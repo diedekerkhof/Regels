@@ -1,4 +1,4 @@
-<Module  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./FrankConfig.xsd">
+<Module>
 	<Adapter name="ExecuteRegels" description="This adapter executes regelingen">
 		<Receiver name="ExecuteRegels">
 			<Listener name="ExecuteRegels" className="nl.nn.adapterframework.http.rest.ApiListener"
@@ -6,12 +6,12 @@
 		</Receiver>
 		<Pipeline firstPipe="Json2Xml">
 			<Exits>
-				<Exit path="EXIT" state="success" code="200"/>
-				<Exit path="NotModified" state="success" code="304" empty="true" />
-				<Exit path="BadRequest" state="error" code="400" empty="true" />
-				<Exit path="NotAuthorized" state="error" code="401" empty="true" />
-				<Exit path="NotAllowed" state="error" code="403" empty="true" />
-				<Exit path="ServerError" state="error" code="500" />
+				<Exit name="EXIT" state="success" code="200"/>
+				<Exit name="NotModified" state="success" code="304" empty="true" />
+				<Exit name="BadRequest" state="error" code="400" empty="true" />
+				<Exit name="NotAuthorized" state="error" code="401" empty="true" />
+				<Exit name="NotAllowed" state="error" code="403" empty="true" />
+				<Exit name="ServerError" state="error" code="500" />
 			</Exits>
 
 			<Json2XmlValidatorPipe
@@ -37,8 +37,6 @@
 					<Param name="url" xpathExpression="regel/regelExecutie"/>
 					<Param name="message" sessionKey="messageBody"/>
 				</IbisJavaSender>
-
-				<Forward name="success" path="EXIT"/>
 			</ForEachChildElementPipe>
 		</Pipeline>
 	</Adapter>
@@ -48,7 +46,7 @@
 			<JavaListener name="SendRegels" serviceName="SendRegels"/>
 		</Receiver>
 		<Pipeline firstPipe="CallApi">
-			<Exit path="EXIT" state="success"/>
+			<Exit name="EXIT" state="success"/>
 			<SenderPipe name="CallApi" getInputFromSessionKey="message">
 				<HttpSender name="CallApi" contentType="text/xml" charSet="" methodType="POST">
 					<Param name="url" sessionKey="url"/>
