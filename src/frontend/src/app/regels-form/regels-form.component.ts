@@ -15,11 +15,11 @@ export class RegelsFormComponent {
   public loading = false;
   public regelsForm = this.formBuilder.group({
     datum: ['', Validators.required],
-    leeftijd: ['43', Validators.required],
-    plaats: ['zoetermeer', Validators.required],
-    inkomen: ['1212', Validators.required],
-    woonkosten: ['1212', Validators.required],
-    vermogen: ['1212', Validators.required]
+    leeftijd: ['58', Validators.required],
+    plaats: ['Utrecht', Validators.required],
+    inkomen: ['1000', Validators.required],
+    woonkosten: ['650', Validators.required],
+    vermogen: ['400', Validators.required]
   });
 
   constructor(private formBuilder: FormBuilder, private regelService: RegelService, private toastr: ToastrService) { }
