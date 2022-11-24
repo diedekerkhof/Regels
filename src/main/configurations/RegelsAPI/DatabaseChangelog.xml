@@ -37,6 +37,8 @@
 		</sql>
 	</changeSet>
 
+	<changeSet id="delete-data" author="Diede Kerkhof"> <delete tableName="REGELS"> </delete> </changeSet>
+	
 	<changeSet id="REGELS TESTDATA Insert" author="Steven">
 		<sql>
 			INSERT INTO REGELS (REGELING_NAME, START_DATUM, EIND_DATUM, START_LEEFTIJD, EIND_LEEFTIJD, PLAATS, INKOMEN_TOT, WOONKOSTEN_TOT, VERMOGEN_TOT, REGELING_EXECUTIE)
