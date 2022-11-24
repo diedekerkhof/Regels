@@ -36,4 +36,17 @@
 			('regel laatste', DATE '2007-12-01', DATE '2040-12-01', 24, 75, 'den haag', 100000, 60000, 200000, 'executie plaats/link');
 		</sql>
 	</changeSet>
+
+	<changeSet id="REGELS TESTDATA Insert" author="Steven">
+		<sql>
+			INSERT INTO REGELS (REGELING_NAME, START_DATUM, EIND_DATUM, START_LEEFTIJD, EIND_LEEFTIJD, PLAATS, INKOMEN_TOT, WOONKOSTEN_TOT, VERMOGEN_TOT, REGELING_EXECUTIE)
+			VALUES ('DecisionService 1', DATE '2003-12-01', DATE '2030-12-01', 30, 45, 'Utrecht', 50000, 15000, 100000, 'https://api-regels.nl:8443/brmpociit-1.0.6/DecisionService'),
+			('Runtime Blueriq 1', DATE '2006-12-01', DATE '2023-12-01', 40, 60, 'Utrecht', 70000, 35000, 200000, 'http://15.188.159.96/runtime/webservices/aaas/studio-VirtueelInkomensLoket-VirtueelInkomensLoket/Trunk/Berekenen_IIT'),
+			('DMN 1', DATE '20012-12-01', DATE '2020-12-01', 80, 99, 'Utrecht', 150000, 100000, 600000, 'https://vil-regels.nl:8443/engine-rest/decision-definition/key/Decision_18qw2e6/evaluate'),
+			('DecisionService 2', DATE '2000-12-01', DATE '2003-12-01', 30, 39, 'Amersfoort', 23000, 65000, 20000, 'https://api-regels.nl:8443/brmpociit-1.0.6/DecisionService'),
+			('Runtime Blueriq 2', DATE '2001-12-01', DATE '2006-01-01', 50, 60, 'Amersfoort', 50000, 85000, 35000, 'http://15.188.159.96/runtime/webservices/aaas/studio-VirtueelInkomensLoket-VirtueelInkomensLoket/Trunk/Berekenen_IIT'),
+			('DMN 2', DATE '2007-12-01', DATE '2040-12-01', 24, 75, 'Amersfoort', 100000, 60000, 200000, 'https://vil-regels.nl:8443/engine-rest/decision-definition/key/Decision_18qw2e6/evaluate');
+		</sql>
+	</changeSet>
+
 </databaseChangeLog>
