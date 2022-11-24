@@ -40,7 +40,7 @@
 	<changeSet id="delete-data" author="Diede Kerkhof"> <delete tableName="REGELS"> </delete> </changeSet>
 	<!--This requires h2 database reset. Delete the files in: frank-runner\build\h2\v2\ -->
 
-	<changeSet id="REGELS TESTDATA Insert" author="Steven">
+	<changeSet id="REGELS TESTDATA Insert New" author="Steven">
 		<sql>
 			INSERT INTO REGELS (REGELING_NAME, START_DATUM, EIND_DATUM, START_LEEFTIJD, EIND_LEEFTIJD, PLAATS, INKOMEN_TOT, WOONKOSTEN_TOT, VERMOGEN_TOT, REGELING_EXECUTIE)
 			VALUES ('DecisionService 1', DATE '2003-12-01', DATE '2030-12-01', 30, 45, 'Utrecht', 50000, 15000, 100000, 'https://api-regels.nl:8443/brmpociit-1.0.6/DecisionService'),
