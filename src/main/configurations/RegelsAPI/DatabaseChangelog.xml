@@ -38,7 +38,6 @@
 	</changeSet>
 
 	<changeSet id="delete-data" author="Diede Kerkhof"> <delete tableName="REGELS"> </delete> </changeSet>
-	<!--This requires h2 database reset. Delete the files in: frank-runner\build\h2\v2\ -->
 
 	<changeSet id="REGELS TESTDATA Insert New" author="Steven">
 		<sql>
