@@ -11,23 +11,13 @@
 		<xsl:variable name="inkomen" select="executionRequest/gegevens/inkomen" />
 		<xsl:variable name="vermogen" select="executionRequest/gegevens/vermogen" />
 
-		<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
-			<soapenv:Header/>
-			<soapenv:Body>
-				<brm:berekenIit xmlns:brm="http://brm.poc.iit.belastingdienst.nl">
-					<rsiitMsg>
-						<request belastingjaar="2021" berichtId="12234324">
-							<test>
-								<woonplaats><xsl:value-of select="$woonplaats"/></woonplaats>
-								<aowLeeftijdBehaald><xsl:value-of select="$leeftijd &gt;= 68"/></aowLeeftijdBehaald>
-								<ouderDan21><xsl:value-of select="$leeftijd &gt;= 21"/></ouderDan21>
-								<inkomenPerMaand><xsl:value-of select="$inkomen"/></inkomenPerMaand>
-								<vermogen><xsl:value-of select="$vermogen"/></vermogen>
-							</test>
-						</request>
-					</rsiitMsg>
-				</brm:berekenIit>
-			</soapenv:Body>
-		</soapenv:Envelope>
+			<variables>
+				<woonplaats><value><xsl:value-of select="$woonplaats"/></value><type>String</type></woonplaats>
+				<leeftijd><value><xsl:value-of select="$leeftijd"/></value><type>Integer</type></leeftijd>
+				<aowLeeftijdBehaald><value><xsl:value-of select="$leeftijd &gt;= 68"/></value><type>Boolean</type></aowLeeftijdBehaald>
+				<ouderDan21><value><xsl:value-of select="$leeftijd &gt;= 21"/></value><type>Boolean</type></ouderDan21>
+				<inkomenPerMaand><value><xsl:value-of select="$inkomen"/></value><type>Integer</type></inkomenPerMaand>
+				<vermogen><value><xsl:value-of select="$vermogen"/></value><type>Integer</type></vermogen>
+			</variables>
 	</xsl:template>
 </xsl:stylesheet>

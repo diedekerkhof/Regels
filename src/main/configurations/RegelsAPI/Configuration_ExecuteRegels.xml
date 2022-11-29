@@ -25,6 +25,15 @@
 			<XsltPipe
 				name="TransformRegels"
 				styleSheetName="Common/xsl/createMessageBody.xsl"
+			/>
+
+			<Json2XmlValidatorPipe
+				name="Xml2Json"
+				outputFormat="json"
+				schema="Common/xsd/regelsToJson.xsd"
+				throwException="true"
+				root="variables"
+				jsonWithRootElements="true"
 				storeResultInSessionKey="messageBody"
 			/>
 
