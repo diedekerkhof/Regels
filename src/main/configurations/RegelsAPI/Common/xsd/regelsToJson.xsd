@@ -2,7 +2,7 @@
   <xs:element name="variables">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="woonplaats">
+        <xs:element name="plaats">
           <xs:complexType>
             <xs:sequence>
               <xs:element type="xs:string" name="value"/>
@@ -13,31 +13,23 @@
         <xs:element name="leeftijd">
           <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:byte" name="value"/>
+              <xs:element type="xs:integer" name="value"/>
               <xs:element type="xs:string" name="type"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="aowLeeftijdBehaald">
+        <xs:element name="inkomen">
           <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:string" name="value"/>
+              <xs:element type="xs:integer" name="value"/>
               <xs:element type="xs:string" name="type"/>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ouderDan21">
+        <xs:element name="woonkosten">
           <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:string" name="value"/>
-              <xs:element type="xs:string" name="type"/>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="inkomenPerMaand">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element type="xs:short" name="value"/>
+              <xs:element type="xs:integer" name="value"/>
               <xs:element type="xs:string" name="type"/>
             </xs:sequence>
           </xs:complexType>
@@ -45,7 +37,7 @@
         <xs:element name="vermogen">
           <xs:complexType>
             <xs:sequence>
-              <xs:element type="xs:short" name="value"/>
+              <xs:element type="xs:integer" name="value"/>
               <xs:element type="xs:string" name="type"/>
             </xs:sequence>
           </xs:complexType>

@@ -30,6 +30,7 @@
               <xs:element type="xs:integer" name="leeftijd" maxOccurs="1"/>
               <xs:element type="xs:string" name="woonplaats" maxOccurs="1"/>
               <xs:element type="xs:integer" name="inkomen" maxOccurs="1"/>
+              <xs:element type="xs:integer" name="woonkosten" maxOccurs="1"/>
               <xs:element type="xs:integer" name="vermogen" maxOccurs="1"/>
             </xs:sequence>
           </xs:complexType>

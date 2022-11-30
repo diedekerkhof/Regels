@@ -23,7 +23,7 @@ export class RegelService {
   }
 
   executeRegels(regels: Regels[], form: FormGroup): Observable<Object> {
-    const data = {regels: regels, gegevens: {leeftijd: form.value.leeftijd, woonplaats: form.value.plaats, inkomen: form.value.inkomen, vermogen: form.value.vermogen}}
+    const data = {regels: regels, gegevens: {leeftijd: form.value.leeftijd, woonplaats: form.value.plaats, inkomen: form.value.inkomen, woonkosten: form.value.woonkosten, vermogen: form.value.vermogen}}
     return this.httpClient.post(this.url + '/execute', data)
   }
 }
