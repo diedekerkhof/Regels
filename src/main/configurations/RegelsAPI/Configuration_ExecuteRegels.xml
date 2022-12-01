@@ -57,7 +57,7 @@
 		<Pipeline firstPipe="CallApi">
 			<Exit name="EXIT" state="success"/>
 			<SenderPipe name="CallApi" getInputFromSessionKey="message">
-				<HttpSender name="CallApi" contentType="text/xml" charSet="" methodType="POST">
+				<HttpSender name="CallApi" contentType="text/xml" charSet="" methodType="POST" username="vil" password="vil-regels">
 					<Param name="url" sessionKey="url"/>
 				</HttpSender>
 			</SenderPipe>
